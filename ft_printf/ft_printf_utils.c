@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   specifiers_array.c                                 :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 14:53:29 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/23 14:54:02 by diogo            ###   ########.fr       */
+/*   Created: 2021/11/23 14:53:20 by diogo             #+#    #+#             */
+/*   Updated: 2021/11/23 15:06:18 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void add_element(t_format_spec *data, int index, char specifier, void (*f)())
+void print_char(va_list args)
 {
-	data[index].specifier = specifier;
-	data[index].func = f;
+    int c;
+
+    c = va_arg(args, int);
+    write(1,&c,1);
 }
 
-void fill_specifiers_arr(t_format_spec *data)
+
+void print_string(va_list args)
 {
-	add_element(data, 0, 'c', &print_char);
-    add_element(data, 1, 's', &print_string);
+    char *s;
+
+    s = va_arg(args, char*);
+    while (*s != '\0')
+	{
+		write(0, &(*s), 1);
+		s++;
+	}
 }
+
+
+
