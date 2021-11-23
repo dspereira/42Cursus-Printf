@@ -6,7 +6,7 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:13 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/23 15:25:55 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/23 16:26:09 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,7 @@ int ft_printf(const char *format, ...)
 			write(0,&format[i],1);
 		else
 		{
-			if (ft_strchr(SPECIFIERS, format[i + 1]))
-			{
-				j = 0;
-				while (j < SIZE)
-				{
-					if(data[j].specifier == format[i + 1])
-						data[j].func(args);
-					j++;
-				}
-			}
+			run_specifer_func(args, data, format[i + 1]);
 			i++;
 		}
 		i++;

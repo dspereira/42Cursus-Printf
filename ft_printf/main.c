@@ -5,6 +5,7 @@
 
 int	main(void)
 { 
-	ft_printf("teste: %c%s%s%c%s", 'H', "ello", " World, ", 't', "his works");
+	ft_printf("\nteste: %c%s%s%c%s \nnumeros com letras: %d%i%i%d %s", 'H', "ello", " World, ", 't', "his works", 2,0,2,1, "ano");
+	printf("\n\nteste: %c%s%s%c%s \nnumeros com letras: %d%i%i%d %s", 'H', "ello", " World, ", 't', "his works", 2,0,2,1, "ano");
 	return (0);
 }
