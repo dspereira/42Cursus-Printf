@@ -6,7 +6,7 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:25 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/24 15:01:30 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/24 17:27:35 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 
 # define SPECIFIERS "cspdiuxX%"
+# define HEX_UPPER "0123456789ABCDEF"
+# define HEX_LOWER "0123456789abcdef" 
 # define SIZE 9
 
 typedef struct s_format_spec 
@@ -38,7 +40,7 @@ void print_number(va_list args);
 void print_percent(void);
 void print_unsigned_int(va_list args);
 void print_hexa_low(va_list args);
-void print_hexa_hig(va_list args);
-void print_pointer(va_list args);
+void print_hexa_upp(va_list args);
+void print_ptr(va_list args);
 
 #endif

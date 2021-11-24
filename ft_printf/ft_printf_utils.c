@@ -6,7 +6,7 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:20 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/24 15:07:38 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/24 17:46:06 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,21 +109,84 @@ void print_hex(long int n, int c)
 	{
 		write(0, &nb[i], 1);
 		i--;
+	} 
+}
+
+
+char *str_inverter(char *dst, char *src)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (src[j] != '\0')
+		j++;
+	j--;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[j];
+		j--;
+		i++;
 	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+/*
+	return: size of number in hexadecimal
+*/
+int convert_hex(char *nb, char *conv_str, long int n)
+{
+	char inv_nb[15];
+	int i;
+	int j;
+
+	i = 0;
+	if (n == 0)
+	{
+		inv_nb[i] = '0';
+		i++;
+	}
+	while (n > 0)
+	{
+		inv_nb[i] = conv_str[n % 16];
+		n /= 16;
+		i++;
+	}
+	inv_nb[i] = '\0';
+	str_inverter(nb, inv_nb);
+	return (i);
 }
 
 void print_hexa_low(va_list args)
 {
-	print_hex((long int) va_arg(args, unsigned int), 0);
+	char nb[15];
+	int size;
+
+	size = convert_hex(nb, HEX_LOWER, (long int) va_arg(args, unsigned int));
+	write(0, nb, size);
 }
 
-void print_hexa_hig(va_list args)
+void print_hexa_upp(va_list args)
 {
-	print_hex((long int) va_arg(args, unsigned int), 1);
+	char nb[15];
+	int size;
+
+	size = convert_hex(nb, HEX_UPPER, (long int) va_arg(args, unsigned int));
+	write(0, nb, size);
 }
 
-void print_pointer(va_list args)
+void print_ptr(va_list args)
 {
-	write(0, "0x", 2);
-	print_hex(va_arg(args, long int), 0);
+	char nb[15];
+	int size;
+
+	size = convert_hex(nb, HEX_LOWER, (long int) va_arg(args, long int));
+	if (nb[0] != '0')
+	{
+		write(0, "0x", 2);
+		write(0, nb, size);
+	}
+	else
+		write(0, "(nil)", 5);
 }

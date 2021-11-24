@@ -16,7 +16,11 @@ int	main(void)
 
 	//ft_printf("\nvalor: %x  %X", 42949672957, -324526);
 	//printf("\nvalor: %x  %X", 42949672957, -324526);
+
+	//ft_printf("\nvalor: %x  %X", 2, 10);
+	//printf("\nvalor: %x  %X", 2, 10);
 	
+	p = 0;
 	ft_printf("\npointer: %p", p);
 	printf("\npointer: %p", p);
 
