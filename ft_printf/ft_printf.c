@@ -6,24 +6,12 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:13 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/23 16:26:09 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/24 12:01:50 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0' && s[i] != (char)c)
-		i++;
-	if (s[i] == (char)c)
-		return ((char *) &s[i]);
-	return (0);
-}
 
 int ft_printf(const char *format, ...)
 {

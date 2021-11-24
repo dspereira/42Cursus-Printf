@@ -4,8 +4,21 @@
 //gcc ft_printf.c main.c specifiers_array.c ft_printf_utils.c
 
 int	main(void)
-{ 
-	ft_printf("\nteste: %c%s%s%c%s \nnumeros com letras: %d%i%i%d %s", 'H', "ello", " World, ", 't', "his works", 2,0,2,1, "ano");
-	printf("\n\nteste: %c%s%s%c%s \nnumeros com letras: %d%i%i%d %s", 'H', "ello", " World, ", 't', "his works", 2,0,2,1, "ano");
+{
+	char *p = "teste";
+	//ft_printf("\nte%%ste: %c%s%s%c%s \nnumeros com letras: %d%i%i%d %s", 'H', "ello", " World, ", 't', "his works", 2,0,2,1, "ano");
+	//printf("\n\nte%%ste: %c%s%s%c%s \nnumeros com letras: %d%i%i%d %s", 'H', "ello", " World, ", 't', "his works", 2,0,2,1, "ano");
+
+	//ft_printf("\n\n numeros: %i %d %u %u %d %i", -1, -2, -3, 4, 5, 6);
+	//printf("\nnumeros: %i %d %u %u %d %i", -1, -2, -3, 4, 5, 6);
+
+	//printf("\nvalor: %x, %X, %u", -255, -255, -255);
+
+	//ft_printf("\nvalor: %x  %X", 42949672957, -324526);
+	//printf("\nvalor: %x  %X", 42949672957, -324526);
+	
+	ft_printf("\npointer: %p", p);
+	printf("\npointer: %p", p);
+
 	return (0);
 }
