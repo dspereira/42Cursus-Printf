@@ -6,27 +6,40 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:13 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/24 12:01:50 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/25 10:38:05 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+#include "ft_printf_utils.h"
 
-int ft_printf(const char *format, ...)
+void	run_specifer_func(va_list args, t_format_spec *data, char specifier)
 {
-	va_list args;
-	t_format_spec data[SIZE];
-	int i;
-	int j;
-	
+	int	i;
+
+	i = 0;
+	while (i < SIZE)
+	{
+		if (data[i].specifier == specifier)
+			data[i].func(args);
+		i++;
+	}
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list			args;
+	t_format_spec	data[SIZE];
+	int				i;
+	int				j;
+
 	va_start(args, format);
 	fill_specifiers_arr(data);
 	i = 0;
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-			write(0,&format[i],1);
+			write(0, &format[i], 1);
 		else
 		{
 			run_specifer_func(args, data, format[i + 1]);
@@ -35,6 +48,5 @@ int ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	
 	return (0);
 }
