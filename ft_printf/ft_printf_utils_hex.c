@@ -6,7 +6,7 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:49:18 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/25 11:51:23 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/25 14:28:15 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ static char	*str_inverter(char *dst, char *src)
 	int	i;
 	int	j;
 
-	i = 0;
+	j = 0;
 	while (src[j] != '\0')
 		j++;
 	j--;
+	i = 0;
 	while (src[i] != '\0')
 	{
 		dst[i] = src[j];
@@ -79,7 +80,7 @@ void	print_ptr(va_list args)
 	char	nb[15];
 	int		size;
 
-	size = convert_hex(nb, HEX_LOWER, (long int) va_arg(args, long int));
+	size = convert_hex(nb, HEX_LOWER, va_arg(args, long int));
 	if (nb[0] != '0')
 	{
 		write(0, "0x", 2);
