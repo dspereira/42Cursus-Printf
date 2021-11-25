@@ -6,7 +6,7 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:49:18 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/25 10:52:15 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/25 11:51:23 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	convert_hex(char *nb, char *conv_str, long int n)
 {
 	char	inv_nb[15];
 	int		i;
-	int		j;
 
 	i = 0;
 	if (n == 0)

@@ -6,7 +6,7 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:13 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/25 10:38:05 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/25 12:22:15 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	ft_printf(const char *format, ...)
 	va_list			args;
 	t_format_spec	data[SIZE];
 	int				i;
-	int				j;
 
 	va_start(args, format);
 	fill_specifiers_arr(data);
