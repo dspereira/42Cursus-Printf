@@ -26,8 +26,8 @@ int	main(void)
 	//printf("\n   printf: %p", p);
 
 	p = 0;
-	ft_printf("\nft_printf: %p", p);
-	printf("\n   printf: %p", p);
+	//ft_printf("\nft_printf: %p", p);
+	//printf("\n   printf: %p", p);
 
 	//ft_printf("\nft_printf: %p", 18446744073709551615);
 	//printf("\n   printf: %p", 18446744073709551615);
@@ -42,6 +42,13 @@ int	main(void)
 
 	//printf("valor: %lu", (unsigned long) 15/16);
 
+	//ft_printf(0);
 
+	int size1;
+	int size2;
+	size1 = printf("\nteste %");
+	size2 = ft_printf("\nteste %");
+
+	printf("\nsize1: %i \nsize2: %i", size1, size2);
 	return (0);
 }
