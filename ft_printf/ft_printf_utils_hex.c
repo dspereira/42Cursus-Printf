@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_hex.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:49:18 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/25 14:28:15 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/26 17:08:35 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
+#include <stdio.h>
 
 static char	*str_inverter(char *dst, char *src)
 {
@@ -35,9 +36,9 @@ static char	*str_inverter(char *dst, char *src)
 /*
 	return: size of number in hexadecimal
 */
-static int	convert_hex(char *nb, char *conv_str, long int n)
+static int	convert_hex(char *nb, char *conv_str, unsigned long n)
 {
-	char	inv_nb[15];
+	char	inv_nb[20];
 	int		i;
 
 	i = 0;
@@ -59,33 +60,33 @@ static int	convert_hex(char *nb, char *conv_str, long int n)
 
 void	print_hexa_low(va_list args)
 {
-	char	nb[15];
+	char	nb[20];
 	int		size;
 
-	size = convert_hex(nb, HEX_LOWER, (long int) va_arg(args, unsigned int));
+	size = convert_hex(nb, HEX_LOWER, va_arg(args, unsigned int));
 	write(0, nb, size);
 }
 
 void	print_hexa_upp(va_list args)
 {
-	char	nb[15];
+	char	nb[20];
 	int		size;
 
-	size = convert_hex(nb, HEX_UPPER, (long int) va_arg(args, unsigned int));
+	size = convert_hex(nb, HEX_UPPER, va_arg(args, unsigned int));
 	write(0, nb, size);
 }
 
 void	print_ptr(va_list args)
 {
-	char	nb[15];
+	char	nb[20];
 	int		size;
 
-	size = convert_hex(nb, HEX_LOWER, va_arg(args, long int));
+	size = convert_hex(nb, HEX_LOWER, va_arg(args, unsigned long));
 	if (nb[0] != '0')
 	{
 		write(0, "0x", 2);
 		write(0, nb, size);
 	}
 	else
-		write(0, "(nil)", 5);
+		write(0, "0x0", 3);
 }
