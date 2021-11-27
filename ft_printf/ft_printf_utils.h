@@ -6,7 +6,7 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:33:51 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/25 17:05:13 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/27 19:24:21 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@
 typedef struct s_format_spec
 {
 	char	specifier;
-	void	(*func)();
+	int		(*func)();
 }	t_format_spec;
 
 void	fill_specifiers_arr(t_format_spec *data);
-void	print_char(va_list args);
-void	print_string(va_list args);
-void	print_number(va_list args);
-void	print_percent(void);
-void	print_unsigned_int(va_list args);
-void	print_hexa_low(va_list args);
-void	print_hexa_upp(va_list args);
-void	print_ptr(va_list args);
+int		print_char(va_list args);
+int		print_string(va_list args);
+int		print_number(va_list args);
+int		print_percent(void);
+int		print_unsigned_int(va_list args);
+int		print_hexa_low(va_list args);
+int		print_hexa_upp(va_list args);
+int		print_ptr(va_list args);
 
 #endif

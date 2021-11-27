@@ -6,13 +6,13 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:29 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/25 12:23:55 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/27 17:19:09 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
 
-static void	add_element(t_format_spec *data, int i, char specifier, void (*f)())
+static void	add_element(t_format_spec *data, int i, char specifier, int (*f)())
 {
 	data[i].specifier = specifier;
 	data[i].func = f;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_hex.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:49:18 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/26 17:08:35 by dsilveri         ###   ########.fr       */
+/*   Updated: 2021/11/27 18:25:10 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,27 @@ static int	convert_hex(char *nb, char *conv_str, unsigned long n)
 	return (i);
 }
 
-void	print_hexa_low(va_list args)
+int	print_hexa_low(va_list args)
 {
 	char	nb[20];
 	int		size;
 
 	size = convert_hex(nb, HEX_LOWER, va_arg(args, unsigned int));
 	write(0, nb, size);
+	return (size);
 }
 
-void	print_hexa_upp(va_list args)
+int	print_hexa_upp(va_list args)
 {
 	char	nb[20];
 	int		size;
 
 	size = convert_hex(nb, HEX_UPPER, va_arg(args, unsigned int));
 	write(0, nb, size);
+	return (size);
 }
 
-void	print_ptr(va_list args)
+int	print_ptr(va_list args)
 {
 	char	nb[20];
 	int		size;
@@ -86,7 +88,11 @@ void	print_ptr(va_list args)
 	{
 		write(0, "0x", 2);
 		write(0, nb, size);
+		return (size + 2);
 	}
 	else
+	{
 		write(0, "0x0", 3);
+		return (3);
+	}
 }

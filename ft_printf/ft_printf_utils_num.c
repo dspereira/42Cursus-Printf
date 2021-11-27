@@ -6,13 +6,13 @@
 /*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:48:06 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/25 10:48:53 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/27 19:21:00 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
 
-void	put_nbr(long int n)
+static void	put_nbr(long int n)
 {
 	long int	nb;
 	char		c;
@@ -29,12 +29,40 @@ void	put_nbr(long int n)
 	write(0, &c, 1);
 }
 
-void	print_number(va_list args)
+static int	get_num_size(long int n)
 {
-	put_nbr(va_arg(args, int));
+	int	size;
+
+	size = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		n *= -1;
+		size++;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		size++;
+	}
+	return (size);
 }
 
-void	print_unsigned_int(va_list args)
+int	print_number(va_list args)
 {
-	put_nbr(va_arg(args, unsigned int));
+	int	n;
+
+	n = va_arg(args, int);
+	put_nbr(n);
+	return (get_num_size(n));
+}
+
+int	print_unsigned_int(va_list args)
+{
+	unsigned int	n;
+
+	n = va_arg(args, unsigned int);
+	put_nbr(n);
+	return (get_num_size(n));
 }

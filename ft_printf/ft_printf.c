@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:13 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/26 17:31:13 by dsilveri         ###   ########.fr       */
+/*   Updated: 2021/11/27 19:14:59 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf_utils.h"
 
-static int	run_specifer_func(va_list args, t_format_spec *data, char specifier)
+#include <stdio.h>
+
+static int	run_func(va_list args, t_format_spec *data, char spec, int *size)
 {
 	int	i;
 
 	i = 0;
 	while (i < SIZE)
 	{
-		if (data[i].specifier == specifier)
+		if (data[i].specifier == spec)
 		{
-			data[i].func(args);
+			*size += data[i].func(args);
 			return (1);
 		}
 		i++;
@@ -50,7 +52,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			if (run_specifer_func(args, data, format[i + 1]))
+			if (run_func(args, data, format[i + 1], &size))
 				i++;
 		}
 		i++;
