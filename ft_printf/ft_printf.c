@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:53:13 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/27 19:14:59 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/29 15:17:28 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf_utils.h"
-
-#include <stdio.h>
 
 static int	run_func(va_list args, t_format_spec *data, char spec, int *size)
 {
@@ -47,7 +45,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			write(0, &format[i], 1);
+			write(FD, &format[i], 1);
 			size++;
 		}
 		else

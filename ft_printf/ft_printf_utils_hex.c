@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_hex.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:49:18 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/27 18:25:10 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/29 15:15:14 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
-#include <stdio.h>
 
 static char	*str_inverter(char *dst, char *src)
 {
@@ -64,7 +63,7 @@ int	print_hexa_low(va_list args)
 	int		size;
 
 	size = convert_hex(nb, HEX_LOWER, va_arg(args, unsigned int));
-	write(0, nb, size);
+	write(FD, nb, size);
 	return (size);
 }
 
@@ -74,7 +73,7 @@ int	print_hexa_upp(va_list args)
 	int		size;
 
 	size = convert_hex(nb, HEX_UPPER, va_arg(args, unsigned int));
-	write(0, nb, size);
+	write(FD, nb, size);
 	return (size);
 }
 
@@ -86,13 +85,13 @@ int	print_ptr(va_list args)
 	size = convert_hex(nb, HEX_LOWER, va_arg(args, unsigned long));
 	if (nb[0] != '0')
 	{
-		write(0, "0x", 2);
-		write(0, nb, size);
+		write(FD, "0x", 2);
+		write(FD, nb, size);
 		return (size + 2);
 	}
 	else
 	{
-		write(0, "0x0", 3);
+		write(FD, "0x0", 3);
 		return (3);
 	}
 }

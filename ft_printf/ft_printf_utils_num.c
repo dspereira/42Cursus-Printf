@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_num.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:48:06 by diogo             #+#    #+#             */
-/*   Updated: 2021/11/27 19:21:00 by diogo            ###   ########.fr       */
+/*   Updated: 2021/11/29 15:17:19 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static void	put_nbr(long int n)
 	nb = n;
 	if (n < 0)
 	{
-		write(0, "-", 1);
+		write(FD, "-", 1);
 		nb *= -1;
 	}
 	if (nb >= 10)
 		put_nbr((nb / 10));
 	c = nb - ((nb / 10) * 10) + 48;
-	write(0, &c, 1);
+	write(FD, &c, 1);
 }
 
 static int	get_num_size(long int n)
