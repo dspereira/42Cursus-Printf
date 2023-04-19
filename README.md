@@ -15,3 +15,35 @@ The main goal of this project is to learn how the `printf` function works and es
 - %x print a number in hexadecimal (base 16), with lowercase.
 - %X print a number in hexadecimal (base 16), with uppercase.
 - %% print a percent sign.
+
+## Installation / Usage
+
+This simple example works on linux and MacOs
+
+Clone project:
+```shell
+$ git clone https://github.com/dspereira/42Cursus-Printf.git
+```
+
+Build:
+```shell
+$ cd 42Cursus-Printf/ft_printf
+$ make
+```
+
+Usage:
+```C
+#include "42Cursus-Printf/ft_printf/ft_printf.h"
+
+int main(void)
+{
+    ft_printf("hello %s\n", "ft_printf");
+    return (0);
+}
+
+```
+```shell
+$ gcc main.c 42Cursus-Printf/ft_printf/libftprintf.a
+$ ./a.out
+```
+
