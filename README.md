@@ -20,20 +20,19 @@ The main goal of this project is to learn how the `printf` function works and es
 
 This simple example works on linux and MacOs
 
-Clone project:
+Clone repo inside the folder of your project:
 ```shell
-$ git clone https://github.com/dspereira/42Cursus-Printf.git
+git clone https://github.com/dspereira/42Cursus-Printf.git ft_printf
 ```
 
 Build:
 ```shell
-$ cd 42Cursus-Printf/ft_printf
-$ make
+make -C ./ft_printf
 ```
 
 Usage:
 ```C
-#include "42Cursus-Printf/ft_printf/ft_printf.h"
+#include "ft_printf/ft_printf.h"
 
 int main(void)
 {
@@ -43,7 +42,12 @@ int main(void)
 
 ```
 ```shell
-$ gcc main.c 42Cursus-Printf/ft_printf/libftprintf.a
-$ ./a.out
+gcc main.c ft_printf/libftprintf.a
 ```
+## License
 
+This project is licensed under the MIT License.
+
+## Contact
+
+If you have any questions or comments about this project, please feel free to contact me at diogo.s.pereira@outlook.pt.
