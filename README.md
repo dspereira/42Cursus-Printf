@@ -29,7 +29,6 @@ Build:
 ```shell
 make -C ./ft_printf
 ```
-
 Usage:
 ```C
 #include "ft_printf/ft_printf.h"
@@ -41,8 +40,14 @@ int main(void)
 }
 
 ```
+Compile:
 ```shell
-gcc main.c ft_printf/libftprintf.a
+gcc main.c ft_printf/libftprintf.a -o example
+```
+
+Run:
+```shell
+./example
 ```
 ## License
 
