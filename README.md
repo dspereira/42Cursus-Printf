@@ -51,7 +51,7 @@ Run:
 ```
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://github.com/dspereira/42Cursus-Printf/blob/main/License.md).
 
 ## Contact
 
