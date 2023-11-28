@@ -18,7 +18,7 @@ The main goal of this project is to learn how the `printf` function works and es
 
 ## Installation / Usage
 
-This simple example works on linux and MacOs
+This simple example works on linux and MacOs.
 
 Clone repo inside the folder of your project:
 ```shell
